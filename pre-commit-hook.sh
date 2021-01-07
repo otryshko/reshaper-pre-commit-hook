@@ -30,12 +30,12 @@ echo "Formatting files..."
 SOLUTION_FILE=$(find . -type f -name "*.sln")
 if [[ "$OSTYPE" == "msys"* ]]; then
     # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-    ./.git/hooks/resharper/cleanupcode.exe --profile="Built-in: Reformat Code" $SOLUTION_FILE --include="$INCLUDE_STRING"
+    ./.git/hooks/resharper/cleanupcode.exe --profile="Built-in: Full Cleanup" $SOLUTION_FILE --include="$INCLUDE_STRING"
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     #Cygwin terminal emulator
-    ./.git/hooks/resharper/cleanupcode.exe --profile="Built-in: Reformat Code" $SOLUTION_FILE --include="$INCLUDE_STRING"
+    ./.git/hooks/resharper/cleanupcode.exe --profile="Built-in: Full Cleanup" $SOLUTION_FILE --include="$INCLUDE_STRING"
 else
-    sh ./.git/hooks/resharper/cleanupcode.sh --profile="Built-in: Reformat Code" $SOLUTION_FILE --include="$INCLUDE_STRING"
+    sh ./.git/hooks/resharper/cleanupcode.sh --profile="Built-in: Full Cleanup" $SOLUTION_FILE --include="$INCLUDE_STRING"
 fi
 
 
